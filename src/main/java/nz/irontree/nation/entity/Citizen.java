@@ -2,7 +2,7 @@ package nz.irontree.nation.entity;
 
 public class Citizen {
 
-    private int id;
+    private final int id;
     private String name;
     private String surname;
     private int age;
@@ -16,35 +16,30 @@ public class Citizen {
         this.citizenship = citizenship;
     }
 
-    public int getId() {
+    public final int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
+    public final String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
+    public final String getSurname() {
         return surname;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public int getAge() {
+    public final int getAge() {
         return age;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    @Override
+    public String toString() {
+        return "Citizen{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", age=" + age +
+                ", citizenship=" + citizenship.getNameNation() +
+                '}';
     }
 }

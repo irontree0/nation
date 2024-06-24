@@ -1,22 +1,31 @@
 package nz.irontree.nation.util;
 import nz.irontree.nation.entity.Citizen;
 import nz.irontree.nation.entity.Nation;
-
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class CitizenGenerator {
 
-    private static final Random RANDOM = new Random();
+    public static final Random RANDOM = new Random();
     private static final int NAME_LENGTH_MIN = 5;
     private static final int NAME_LENGTH_MAX = 10;
     private static final int AGE_MAX = 100;
-//    int numberOfPeople = 10;
-//    List<CitizenGenerator> people = new ArrayList<>();
+
+    public static List<Citizen> generateCitizens(int numberOfPeople) {
+        List<Citizen> people = new ArrayList<>();
+        for (int i = 1; i <= numberOfPeople; i++) {
+            int id = Nation.getStateSingleton().getCitizensCount();
+            people.add(generateCitizen(id));
+            Nation.getStateSingleton().incrementCitizenCount();
+        }
+        return people;
+    }
 
     // create citizen
-    private static Citizen generateCitizen() {
+    private static Citizen generateCitizen(int id) {
         return new Citizen(
-                1,//todo update
+                id,
                 generateName(),
                 generateName(),
                 generateAge(),
@@ -25,7 +34,7 @@ public class CitizenGenerator {
     }
 
     // random word
-    private static String generateName() {
+    public static String generateName() {
         int length = RANDOM.nextInt(NAME_LENGTH_MAX - NAME_LENGTH_MIN + 1) + NAME_LENGTH_MIN;
         StringBuilder nameBuilder = new StringBuilder(length);
         nameBuilder.append((char) (RANDOM.nextInt(26) + 'A'));
