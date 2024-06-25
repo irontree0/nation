@@ -5,7 +5,7 @@ import java.util.List;
 
 public class District {
 
-    private String districtName;
+    private final String districtName;
     private List<City> cities;
 
     public District(String districtName) {
@@ -26,5 +26,9 @@ public class District {
             citizens.addAll(city.getCitizens());
         }
         return citizens;
+    }
+
+    public void setCities(List<City> cities) {
+        this.cities = cities;
     }
 }

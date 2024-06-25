@@ -3,9 +3,9 @@ package nz.irontree.nation.entity;
 public class Citizen {
 
     private final int id;
-    private String name;
-    private String surname;
-    private int age;
+    private final String name;
+    private final String surname;
+    private final int age;
     private final Nation citizenship;
 
     public Citizen(int id, String name, String surname, int age, Nation citizenship) {
@@ -14,10 +14,6 @@ public class Citizen {
         this.surname = surname;
         this.age = age;
         this.citizenship = citizenship;
-    }
-
-    public final int getId() {
-        return id;
     }
 
     public final String getName() {

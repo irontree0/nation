@@ -45,7 +45,7 @@ public class CitizenGenerator {
         return nameBuilder.toString();
     }
 
-    // frandom age
+    // random age
     private static int generateAge() {
         return RANDOM.nextInt(AGE_MAX);
     }

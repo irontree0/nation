@@ -4,7 +4,7 @@ import java.util.List;
 
 public class City {
 
-    private String cityName;
+    private final String cityName;
     private List<Citizen> citizens;
 
     public City(String cityName) {
@@ -18,5 +18,9 @@ public class City {
 
     public List<Citizen> getCitizens() {
         return citizens;
+    }
+
+    public void setCitizens(List<Citizen> citizens) {
+        this.citizens = citizens;
     }
 }

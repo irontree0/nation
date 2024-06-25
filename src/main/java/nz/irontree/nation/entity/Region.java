@@ -6,8 +6,8 @@ import java.util.List;
 
 public class Region {
 
-    private String regionName;
-    private City majorCity;
+    private final String regionName;
+    private final City majorCity;
     private List<District> districts;
 
     public Region(String regionName) {
@@ -33,5 +33,9 @@ public class Region {
             citizens.addAll(district.getCitizens());
         }
         return citizens;
+    }
+
+    public void setDistricts(List<District> districts) {
+        this.districts = districts;
     }
 }

@@ -62,5 +62,7 @@ public final class Nation {
         return citizens;
     }
 
-
+    public void setRegions(List<Region> regions) {
+        Nation.regions = regions;
+    }
 }
