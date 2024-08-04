@@ -15,9 +15,9 @@ public class CitizenGenerator {
     public static List<Citizen> generateCitizens(int numberOfPeople) {
         List<Citizen> people = new ArrayList<>();
         for (int i = 1; i <= numberOfPeople; i++) {
-            int id = Nation.getStateSingleton().getCitizensCount();
+            int id = Nation.getINSTANCE().getCitizensCount();
             people.add(generateCitizen(id));
-            Nation.getStateSingleton().incrementCitizenCount();
+            Nation.getINSTANCE().incrementCitizenCount();
         }
         return people;
     }
@@ -29,7 +29,7 @@ public class CitizenGenerator {
                 generateName(),
                 generateName(),
                 generateAge(),
-                Nation.getStateSingleton()
+                Nation.getINSTANCE()
         );
     }
 

@@ -13,7 +13,7 @@ public class NationTest {
 
     @BeforeSuite
     public void setupNation() {
-        Nation land = Nation.getStateSingleton();
+        Nation land = Nation.getINSTANCE();
         List<Citizen> people = new ArrayList<>();
         people.add(new Citizen(1, "Matt", "Iden", 42, land));
         people.add(new Citizen(2, "Martin", "Apple", 39, land));
@@ -31,21 +31,21 @@ public class NationTest {
 
     @Test
     public void getCapitalTest() {
-        assertEquals("Major", Nation.getStateSingleton().getNameCapital());
+        assertEquals("Major", Nation.getINSTANCE().getNameCapital());
     }
 
     @Test
     public void getAreaTest() {
-        assertEquals("3652 sq km", Nation.getStateSingleton().getNationArea());
+        assertEquals("3652 sq km", Nation.getINSTANCE().getNationArea());
     }
 
     @Test
     public void getRegionsTest() {
-        assertEquals(1, Nation.getStateSingleton().getRegions().size());
+        assertEquals(1, Nation.getINSTANCE().getRegions().size());
     }
 
     @Test
     public void getCitizensTest() {
-        assertEquals(5, Nation.getStateSingleton().getCitizens().size());
+        assertEquals(5, Nation.getINSTANCE().getCitizens().size());
     }
 }

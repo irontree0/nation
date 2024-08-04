@@ -12,7 +12,7 @@ import static org.testng.AssertJUnit.assertEquals;
 
 public class MainTest {
 
-    private final Nation land = Nation.getStateSingleton();
+    private final Nation land = Nation.getINSTANCE();
     private Region region;
 
     @BeforeSuite

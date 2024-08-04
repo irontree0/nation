@@ -61,29 +61,29 @@ public class Main {
     }
 
     private static void printCapital() {
-        String nameCapital = Nation.getStateSingleton().getNameCapital();
+        String nameCapital = Nation.getINSTANCE().getNameCapital();
         System.out.println("The capital of Land is " + nameCapital);
     }
 
     private static void regionsNumber() {
-        System.out.println("The number of regions is " + Nation.getStateSingleton().getRegions().size());
+        System.out.println("The number of regions is " + Nation.getINSTANCE().getRegions().size());
     }
 
     private static void printNationArea() {
-        String nationArea = Nation.getStateSingleton().getNationArea();
+        String nationArea = Nation.getINSTANCE().getNationArea();
         System.out.println("The area of Land is " + nationArea);
     }
 
     private static void printMajorCities() {
-        for (Region region : Nation.getStateSingleton().getRegions()) {
+        for (Region region : Nation.getINSTANCE().getRegions()) {
             System.out.printf("The center of %s is %s%n", region.getRegionName(), region.getMajorCity().getCityName());
         }
     }
 
     private static void calculateAverageAge() {
-        int nationalAverage = calculateAverageAge(Nation.getStateSingleton().getCitizens());
+        int nationalAverage = calculateAverageAge(Nation.getINSTANCE().getCitizens());
         System.out.println("The average age of the citizens is " + nationalAverage);
-        for (Region region : Nation.getStateSingleton().getRegions()) {
+        for (Region region : Nation.getINSTANCE().getRegions()) {
             System.out.printf("The average age of the citizens in the region %s is %d%n", region.getRegionName(),
                     calculateAverageAge(region.getCitizens()));
         }
@@ -103,7 +103,7 @@ public class Main {
     }
 
     public static int countSurnameOfSize(int surnameLength) {
-        List<Citizen> citizens = Nation.getStateSingleton().getCitizens();
+        List<Citizen> citizens = Nation.getINSTANCE().getCitizens();
         int count = 0;
         for (Citizen citizen : citizens) {
             if (citizen.getSurname().length() == surnameLength) {
@@ -128,7 +128,7 @@ public class Main {
 
     public static Map<Region, List<Citizen>> getCitizensByRegionWithNameStartsWithLetter(char firstLetter) {
         Map<Region, List<Citizen>> citizensByRegion = new HashMap<>();
-        for (Region region : Nation.getStateSingleton().getRegions()) {
+        for (Region region : Nation.getINSTANCE().getRegions()) {
             List<Citizen> citizens = new ArrayList<>();
             for (Citizen citizen : region.getCitizens()) {
                 if (citizen.getName().charAt(0) == firstLetter) {

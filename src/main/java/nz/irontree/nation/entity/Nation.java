@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class Nation {
-    private static Nation StateSingleton;
+    private static Nation INSTANCE;
     private String nameNation;
     private String nameCapital;
     private String nationArea;
@@ -18,6 +18,9 @@ public final class Nation {
         nameCapital = "Major";
         nationArea = "3652 sq km";
         regions = new ArrayList<>();
+        for (int i = 0; i < CitizenGenerator.RANDOM.nextInt(3) + 2; i++) {
+            regions.add(new Region(CitizenGenerator.generateName()));
+        }
     }
 
     public int getCitizensCount() {
@@ -28,14 +31,11 @@ public final class Nation {
         citizensCount += 1;
     }
 
-    public static Nation getStateSingleton() {
-        if (StateSingleton == null) {
-            StateSingleton = new Nation();
-            for (int i = 0; i < CitizenGenerator.RANDOM.nextInt(3) + 2; i++) {
-                regions.add(new Region(CitizenGenerator.generateName()));
-            }
+    public static Nation getINSTANCE() {
+        if (INSTANCE == null) {
+            INSTANCE = new Nation();
         }
-        return StateSingleton;
+        return INSTANCE;
     }
 
     public String getNameNation() {
