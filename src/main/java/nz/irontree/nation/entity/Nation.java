@@ -7,9 +7,9 @@ import java.util.List;
 
 public final class Nation {
     private static Nation INSTANCE;
-    private String nameNation;
-    private String nameCapital;
-    private String nationArea;
+    private final String nameNation;
+    private final String nameCapital;
+    private final String nationArea;
     private static List<Region> regions;
     private int citizensCount = 0;
 
@@ -56,7 +56,7 @@ public final class Nation {
 
     public List<Citizen> getCitizens() {
         List<Citizen> citizens = new ArrayList<>();
-        for (Region region : this.regions) {
+        for (Region region : regions) {
             citizens.addAll(region.getCitizens());
         }
         return citizens;
